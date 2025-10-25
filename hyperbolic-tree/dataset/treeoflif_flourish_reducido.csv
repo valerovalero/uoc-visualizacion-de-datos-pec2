@@ -1,0 +1,39 @@
+parent,child,node_name,extinct,phylesis,confidence,tolorg_link
+1,2,Eubacteria,0,0,0,1
+2,2285,Aquificae,0,0,0,1
+2285,59615,Aquifex,0,0,0,0
+2285,59616,Calderobacterium,0,0,0,0
+2285,59617,Hydrogenobacter,0,0,0,0
+2285,59618,Thermocrinis,0,0,0,0
+2285,59619,Hydrogenothermus,0,0,0,0
+2285,5962,Tylogonus putumayo,0,0,0,0
+2285,59621,Sulfurihydrogenibium,0,0,0,0
+2285,59622,Balnearium,0,0,2,0
+2285,59623,Desulfurobacterium,0,0,2,0
+2285,59624,Thermovibrio,0,0,2,0
+2,2286,Thermotogae,0,0,0,1
+2286,59625,Thermotoga,0,0,0,0
+2286,59626,Fervidobacterium,0,0,0,0
+2286,59627,Geotoga,0,0,0,0
+2286,59628,Marinitoga,0,0,0,0
+2286,59629,Petrotoga,0,0,0,0
+2286,5963,Tylogonus vachoni,0,0,0,0
+2,2287,Thermodesulfobacteria,0,0,0,1
+2287,59633,Thermodesulfobacterium,0,0,0,0
+2287,59634,Thermodesulfatator,0,0,0,0
+2,2288,Deinococcus-Thermus,0,0,0,1
+2288,59635,Deinococcus,0,0,0,0
+2288,59636,Thermus,0,0,0,0
+2288,59637,Marinithermus,0,0,0,0
+2288,59638,Meiothermus,0,0,0,0
+2288,59639,Oceanithermus,0,0,0,0
+2288,5964,Tylogonus viridimicans,0,0,0,0
+2,2289,Chloroflexi,0,0,0,1
+2289,59641,Chloroflexus,0,0,0,0
+2289,59642,Chloronema,0,0,0,0
+2289,59643,Heliothrix,0,0,0,0
+2289,59644,Roseiflexus,0,0,0,0
+2289,59645,Oscillochloris,0,0,0,0
+2289,59646,Herpetosiphon,0,0,0,0
+2289,59647,Anaerolinea,0,0,0,0
+2289,59648,Caldilinea,0,0,0,0

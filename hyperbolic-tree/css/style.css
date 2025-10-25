@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-top: 20px;
+    color: #333;
+}
+
+svg {
+    background-color: white;
+    margin: 20px auto;
+    display: block;
+    border: 1px solid #ccc;
+}
