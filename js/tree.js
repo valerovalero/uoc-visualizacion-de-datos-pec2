@@ -52,5 +52,5 @@ d3.csv("data/treeoflif_flourish_reducido.csv").then(function(data) {
         .join("text")
         .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y + 6},0) ${d.x > Math.PI ? "rotate(180)" : ""}`)
         .attr("text-anchor", d => d.x > Math.PI ? "end" : "start")
-        .text(d => d.node_name);
+        .text(d => d.data.child_name);
 });
