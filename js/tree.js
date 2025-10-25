@@ -9,21 +9,22 @@ d3.csv("data/treeoflif_flourish_reducido.csv").then(function(data) {
         }
     });
 
-    // Nodo raíz (ajustar ID raíz según tu CSV)
-    let root = nodesById["1"];
+    // Detectar nodo raíz automáticamente (el que nunca aparece como child)
+    const allChildren = new Set(data.map(d => d.child));
+    const maybeRoot = data.find(d => !allChildren.has(d.parent))?.parent || "1";
+    let root = nodesById[maybeRoot];
 
     let width = 960, height = 800;
     let radius = Math.min(width, height) / 2;
 
-    let treeLayout = d3.tree()
-        .size([2 * Math.PI, radius]);
+    let treeLayout = d3.tree().size([2 * Math.PI, radius]);
 
     let hierarchyRoot = d3.hierarchy(root, d => d.children);
     treeLayout(hierarchyRoot);
 
     let svg = d3.select("#tree-svg")
         .attr("viewBox", [-width/2, -height/2, width, height])
-        .style("font", "12px sans-serif");
+        .style("font", "10px sans-serif");
 
     // Links
     svg.append("g")
@@ -33,24 +34,33 @@ d3.csv("data/treeoflif_flourish_reducido.csv").then(function(data) {
         .attr("d", d3.linkRadial()
             .angle(d => d.x)
             .radius(d => d.y))
-        .attr("stroke", "#555")
+        .attr("stroke", "#888")
+        .attr("stroke-width", 1)
         .attr("fill", "none");
 
-    // Nodes
-    svg.append("g")
-        .selectAll("circle")
+    // Nodo + texto juntos en un <g>
+    const node = svg.append("g")
+        .selectAll("g")
         .data(hierarchyRoot.descendants())
-        .join("circle")
-        .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y},0)`)
-        .attr("r", 4)
-        .attr("fill", d => d.extinct == "1" ? "red" : "green");
+        .join("g")
+        .attr("transform", d => `
+            rotate(${d.x * 180 / Math.PI - 90})
+            translate(${d.y},0)
+        `);
 
-    // Labels
-    svg.append("g")
-        .selectAll("text")
-        .data(hierarchyRoot.descendants())
-        .join("text")
-        .attr("transform", d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y + 6},0) ${d.x > Math.PI ? "rotate(180)" : ""}`)
-        .attr("text-anchor", d => d.x > Math.PI ? "end" : "start")
-        .text(d => d.data.child_name);
+    // Círculo
+    node.append("circle")
+        .attr("r", 8)
+        .attr("fill", d => d.data.extinct == "1" ? "#d62728" : "#2ca02c")
+        .attr("stroke", "#333")
+        .attr("stroke-width", 0.5);
+
+    // Texto centrado dentro del círculo
+    node.append("text")
+        .attr("dy", "0.35em")
+        .attr("text-anchor", "middle")
+        .style("fill", "white")
+        .style("font-size", "8px")
+        .text(d => d.data.child_name || d.data.node_name || "");
+
 });
