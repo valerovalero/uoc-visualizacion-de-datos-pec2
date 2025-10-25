@@ -42,7 +42,7 @@ d3.csv("data/treeoflif_flourish_reducido.csv").then(function(data) {
         .style("position", "absolute")
         .style("padding", "4px 8px")
         .style("background", "rgba(0,0,0,0.7)")
-        .style("color", "white")
+        .style("color", "whblackite")
         .style("border-radius", "4px")
         .style("font-size", "10px")
         .style("pointer-events", "none")
