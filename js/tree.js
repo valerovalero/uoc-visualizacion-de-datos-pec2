@@ -1,4 +1,4 @@
-d3.csv("dataset/treeoflif_flourish_reducido.csv").then(function(data) {
+d3.csv("data/treeoflif_flourish_reducido.csv").then(function(data) {
 
     // Convertir datos a jerarquía
     let nodesById = {};
